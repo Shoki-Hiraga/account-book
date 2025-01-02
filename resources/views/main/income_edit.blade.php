@@ -4,31 +4,23 @@
 
 <body>
     <header>
-        <h1>支出編集</h1>
+        <h1>収入編集</h1>
     </header>
 
     <div class="edit-page">
     @include('components.navi')
+
         <div class="form-balance edit-balance">            
-            <form action="{{route('homebudget.update')}}" method="POST">
+            <form action="{{route('income.update')}}" method="POST">
                 @csrf
                 @method('put')
-                <input type="hidden"  id="id" name="id" value="{{$homebudget->id}}">
+                <input type="hidden"  id="id" name="id" value="{{$in_come->id}}">
                 <label for="date">日付:</label>
-                <input type="date" id="date" name="date" value="{{$homebudget->date}}">
+                <input type="date" id="date" name="date" value="{{$in_come->date}}">
                 @if($errors->has('date')) <span class="error">{{$errors->first('date')}}</span> @endif
 
-                <label for="category_id">カテゴリ:</label>
-                <select name="category_id" id="category_id">
-                    @foreach($categories as $category)
-                    <option value="{{$category->id}}" {{$category->id == $homebudget->category_id ? 'selected' : ''}}>
-                        {{$category->name}}
-                    </option>
-                    @endforeach
-                </select>
-
                 <label for="price">金額:</label>
-                <input type="text" id="price" name="price"  value="{{$homebudget->price}}">
+                <input type="text" id="price" name="price"  value="{{$in_come->price}}">
                 @if ($errors->has('price')) <span class="error">{{$errors->first('price')}}</span>@endif
 
                 <div class="button-container">

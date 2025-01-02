@@ -1,0 +1,36 @@
+.add-balance {
+    width: 100%;
+    max-width: 20%;
+    margin-left: 20px;
+}
+.add-balance h3 {
+    margin-top: 0;
+}
+.add-balance form {
+    display: flex;
+    flex-direction: column;
+}
+.add-balance .form-group {
+    margin-bottom: 10px;
+}
+.add-balance label {
+    font-weight: bold;
+}
+.add-balance input, .add-balance select {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+.add-balance button {
+    padding: 8px 16px;
+    background-color: mediumaquamarine;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+

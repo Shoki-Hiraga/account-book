@@ -12,7 +12,7 @@ class HomebudgetController extends Controller
      */
     public function index()
     {
-        $homebudgets = HomeBudget::with('category')->orderBy('date', 'desc')->paginate(10);
+        $homebudgets = HomeBudget::with('category')->orderBy('date', 'desc')->paginate(20);
         return view('main.index', compact('homebudgets'));
     }
 

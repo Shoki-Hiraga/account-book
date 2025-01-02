@@ -1,11 +1,13 @@
-@include('main.doctype')
+@include('components.doctype')
 
-@include('main.header')
+@include('components.header')
 
 <body>
     <h1>家計簿アプリ</h1>
+    @include('components.navi')
         <section class="container">
             <div class="balance">
+            <h3>収入</h3>
                 <h3>支出一覧</h3>
                 @if(session('flash_message'))
                     <div class="flash_message">
@@ -31,7 +33,7 @@
                          <tr>
                             <td>{{$homebudget->date}}</td>
                             <td>{{$homebudget->category->name}}</td>
-                            <td>{{$homebudget->price}}</td>
+                            <td>¥{{number_format ($homebudget->price)}}</td>
                             <td class="button-td">
                                 <form action="{{route('homebudget.edit', ['id'=>$homebudget->id])}}" method="">
                                     <input type="submit" value="更新" class="edit-button">
@@ -40,7 +42,6 @@
                                     @csrf
                                     <input type="submit" value="削除" class="delete-button">
                                 </form>
-
                             </td>
                          </tr>
                          @endforeach
@@ -53,7 +54,7 @@
     
             <div class="add-balance">
                 <h3>支出の追加</h3>
-                <form action="{{ route('store') }}" method="POST">
+                <form action="{{ route('homebudget.store') }}" method="POST">
                     @csrf
                     <label for="date">日付:</label>
                     <input type="date" id="date" name="date">
